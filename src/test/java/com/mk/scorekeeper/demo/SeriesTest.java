@@ -16,14 +16,14 @@ public class SeriesTest {
     @Test
     public void shouldStoreTeams(){
         Series series = new Series();
-        Team team = new Team();
+        Team team = new Team("Kings XI Punjab");
         series.addTeam(team);
         Assert.assertTrue(series.getTeams().contains(team));
     }
     @Test
     public void shouldStoreMatches(){
         Series series = new Series();
-        Match match = new Match(new Team(),new Team());
+        Match match = new Match(new Team("Rajasthan Royals"),new Team("Delhi Daredevils"));
         series.addMatch(match);
         Assert.assertTrue(series.getMatches().contains(match));
     }

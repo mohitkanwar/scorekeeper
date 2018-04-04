@@ -10,9 +10,16 @@ public class TeamTest {
 
     @Test
     public void shouldStoreAPlayer(){
-        Team team = new Team();
+        Team team = new Team("Royal Challengers Bangalore");
         Player player = new Player();
         team.addPlayer(player);
         Assert.assertTrue(team.getPlayers().contains(player));
+    }
+    @Test
+    public void shouldStoreAName(){
+
+        String teamName = "Delhi Daredevils";
+        Team team = new Team(teamName);
+        Assert.assertEquals(teamName,team.getName());
     }
 }

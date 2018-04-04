@@ -1,6 +1,9 @@
 package com.mk.scorekeeper.demo;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Date;
 
 /**
  * A match occurs between two teams
@@ -12,7 +15,20 @@ import org.junit.Test;
 public class MatchTest {
     @Test
     public void shouldAddTwoTeams(){
-        Match match = new Match(new Team(),new Team());
+        Team team = new Team("Delhi Daredevils");
+        Team team1 = new Team("Rajasthan Royals");
+        Match match = new Match(team,team1);
         match.getTeams();
+        Assert.assertTrue(match.getTeams().contains(team));
+        Assert.assertTrue(match.getTeams().contains(team1));
+    }
+    @Test
+    public void shouldStoreBeginTime(){
+        Team team = new Team("Delhi Daredevils");
+        Team team1 = new Team("Rajasthan Royals");
+        Match match = new Match(team,team1);
+        Date matchDate = new Date();
+        match.setScheduledDate(matchDate);
+        Assert.assertEquals(matchDate,match.getScheduledDate());
     }
 }
